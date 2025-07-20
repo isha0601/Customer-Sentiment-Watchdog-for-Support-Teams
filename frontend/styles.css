@@ -1,0 +1,220 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ===== Root theme vars ===== */
+:root {
+  --bg-gradient: linear-gradient(135deg, #00c6ff, #0072ff); /* TEAL to BLUE */
+  --text-color: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.2);
+  --nav-bg: rgba(0, 0, 0, 0.2);
+  --footer-bg: rgba(0, 0, 0, 0.1);
+}
+
+body.light {
+  --bg-gradient: linear-gradient(135deg, #e0f7fa, #b2ebf2); /* Soft AQUA */
+  --text-color: #333333;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --nav-bg: rgba(255, 255, 255, 0.4);
+  --footer-bg: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Base Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Nav Bar ===== */
+.navbar {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-actions a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-actions a:hover {
+  color: #ffd700;
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* ===== Container ===== */
+.container {
+  flex: 1;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 40px;
+  background: var(--card-bg);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* ===== Textarea & Buttons ===== */
+textarea {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  resize: vertical;
+  background: rgba(255,255,255,0.1);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+textarea::placeholder {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+textarea:focus {
+  outline: 2px solid #fff;
+}
+
+button {
+  padding: 12px 30px;
+  margin: 5px;
+  border: none;
+  border-radius: 50px;
+  background: #ffffff;
+  color: #0072ff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #0072ff;
+  color: #fff;
+}
+
+#result {
+  margin-top: 25px;
+  font-weight: 500;
+  white-space: pre-line;
+}
+
+/* ===== Ticket list ===== */
+ul {
+  list-style: none;
+  margin-top: 30px;
+  padding: 0;
+}
+
+li {
+  background: var(--card-bg);
+  margin: 10px 0;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+li:hover {
+  transform: translateX(5px);
+}
+
+/* ===== Chart ===== */
+canvas {
+  max-width: 400px;
+  margin: 0 auto 30px;
+  display: block;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--footer-bg);
+  backdrop-filter: blur(4px);
+  font-size: 0.9rem;
+}
+
+/* ===== Toast ===== */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Animations ===== */
+.container {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
