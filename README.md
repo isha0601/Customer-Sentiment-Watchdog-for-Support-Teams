@@ -1,5 +1,3 @@
-# Customer-Sentiment-Watchdog-for-Support-Teams
-
 # 📈 Customer Sentiment Watchdog for Support Teams
 
 **Problem:**  
